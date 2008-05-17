@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.4
-Release:       1%{?dist}.3
+Release:       1%{?dist}.4
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
