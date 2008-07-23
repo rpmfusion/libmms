@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.4
-Release:       1%{?dist}.4
+Release:       2%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jul 23 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.4-2
+- Release bump for rpmfusion build
+
 * Fri Dec 21 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 0.4-1
 - New upstream release 0.4
 - Drop all patches (all upstreamed)
