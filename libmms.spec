@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.4
-Release:       3%{?dist}
+Release:       4%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
@@ -61,6 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.4-4
+- rebuild for new F11 features
+
 * Thu Jul 24 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.4-3
 - Rebuild for buildsys cflags issue
 
