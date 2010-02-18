@@ -1,11 +1,14 @@
 Name:          libmms
-Version:       0.4
-Release:       4%{?dist}
+Version:       0.5
+Release:       1%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
-URL:           http://libmms.sourceforge.net/
-Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+URL:           http://launchpad.net/libmms
+Source0:       http://launchpad.net/libmms/trunk/0.5/+download/libmms-%{version}.tar.gz
+# Various patches from / heading into upstream bazar concatenated into 1
+# see the git headers inside the file for details
+Patch0:        libmms-0.5-patches.patch
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: glib2-devel
 
@@ -28,9 +31,11 @@ This package contains development files for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
 
 
 %build
+export CFLAGS="$RPM_OPT_FLAGS -Wno-pointer-sign"
 %configure --disable-dependency-tracking --disable-static
 make %{?_smp_mflags} 
 
@@ -61,6 +66,13 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Feb 18 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.5-1
+- New upstream release 0.5 (rf1053)
+- Fix some regressions introduced by upstream
+- Add a bunch of home grown patches (I used to be part of upstream, but
+  upstream has moved to launchpad), fixing several bugs and cleaning up
+  the code left and right, all these are submitted upstream
+
 * Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.4-4
 - rebuild for new F11 features
 
