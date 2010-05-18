@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.5
-Release:       1%{?dist}
+Release:       1%{?dist}.1
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue May 18 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.5-1.1
+- rebuilt
+
 * Thu Feb 18 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.5-1
 - New upstream release 0.5 (rf1053)
 - Fix some regressions introduced by upstream
