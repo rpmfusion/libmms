@@ -1,14 +1,11 @@
 Name:          libmms
-Version:       0.5
+Version:       0.6
 Release:       1%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
-URL:           http://launchpad.net/libmms
-Source0:       http://launchpad.net/libmms/trunk/0.5/+download/libmms-%{version}.tar.gz
-# Various patches from / heading into upstream bazar concatenated into 1
-# see the git headers inside the file for details
-Patch0:        libmms-0.5-patches.patch
+URL:           http://www.sf.net/projects/libmms
+Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: glib2-devel
 
@@ -31,7 +28,6 @@ This package contains development files for %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
 
 
 %build
@@ -66,6 +62,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun May 30 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6-1
+- New upstream release 0.6
+- Update URL (upstream has moved back to sf.net)
+
 * Thu Feb 18 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.5-1
 - New upstream release 0.5 (rf1053)
 - Fix some regressions introduced by upstream
