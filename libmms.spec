@@ -1,5 +1,5 @@
 Name:          libmms
-Version:       0.6
+Version:       0.6.1
 Release:       1%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
@@ -31,7 +31,7 @@ This package contains development files for %{name}.
 
 
 %build
-export CFLAGS="$RPM_OPT_FLAGS -Wno-pointer-sign"
+export CFLAGS="$RPM_OPT_FLAGS -Wno-pointer-sign -Werror"
 %configure --disable-dependency-tracking --disable-static
 make %{?_smp_mflags} 
 
@@ -62,6 +62,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jan 11 2011 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.1-1
+- New upstream bugfix release 0.6.1
+- Fixes the use of the this reserved keyword in public headers (rf1596)
+
 * Sun May 30 2010 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6-1
 - New upstream release 0.6
 - Update URL (upstream has moved back to sf.net)
