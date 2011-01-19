@@ -1,5 +1,5 @@
 Name:          libmms
-Version:       0.6.1
+Version:       0.6.2
 Release:       1%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING.LIB ChangeLog README* TODO
+%doc AUTHORS COPYING.LIB ChangeLog README*
 %{_libdir}/%{name}.so.*
 
 %files devel
@@ -62,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jan 19 2011 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.2-1
+- New upstream bugfix release 0.6.2
+
 * Tue Jan 11 2011 Hans de Goede <j.w.r.degoede@hhs.nl> 0.6.1-1
 - New upstream bugfix release 0.6.1
 - Fixes the use of the this reserved keyword in public headers (rf1596)
