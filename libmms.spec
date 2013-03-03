@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.6.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
@@ -62,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.6.2-3
+- Mass rebuilt for Fedora 19 Features
+
 * Wed Jan 25 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.6.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
