@@ -1,13 +1,11 @@
 Name:          libmms
-Version:       0.6.2
-Release:       3%{?dist}
+Version:       0.6.3
+Release:       1%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
 URL:           http://www.sf.net/projects/libmms
 Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: glib2-devel
 
 %description
 MMS is a proprietary streaming protocol used in Microsoft server products,
@@ -37,12 +35,8 @@ make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %post -p /sbin/ldconfig
@@ -50,18 +44,19 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%defattr(-,root,root,-)
 %doc AUTHORS COPYING.LIB ChangeLog README*
 %{_libdir}/%{name}.so.*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/%{name}
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
 
 
 %changelog
+* Sun Apr 06 2014 Hans de Goede <j.w.r.degoede@gmail.com> - 0.6.3-1
+- New upstream bugfix release 0.6.3
+
 * Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.6.2-3
 - Mass rebuilt for Fedora 19 Features
 
@@ -109,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 - Add self written mmsh seeking patch
 - Add patch exporting some asf header info
 
-* Sat Sep 12 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 0.3-4
+* Wed Sep 12 2007 Hans de Goede <j.w.r.degoede@hhs.nl> 0.3-4
 - Add a patch from Debian fixing another crash
 - Merge freshrpms spec into livna spec for rpmfusion:
 - Set release to 4 to be higher as both livna and freshrpms latest release
