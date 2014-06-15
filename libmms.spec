@@ -1,11 +1,12 @@
 Name:          libmms
 Version:       0.6.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 Group:         System Environment/Libraries
 URL:           http://www.sf.net/projects/libmms
 Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch1:        0001-Remove-Requires-glib-2.0-since-libmms-no-longer-depe.patch
 
 %description
 MMS is a proprietary streaming protocol used in Microsoft server products,
@@ -26,6 +27,7 @@ This package contains development files for %{name}.
 
 %prep
 %setup -q
+%patch1 -p1
 
 
 %build
@@ -54,6 +56,10 @@ rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Sun Jun 15 2014 Hans de Goede <j.w.r.degoede@gmail.com> - 0.6.4-2
+- Add patch from upstream to drop glib requires from the pkg-config file
+  (rhbz#1109495)
+
 * Thu Apr 10 2014 Hans de Goede <j.w.r.degoede@gmail.com> - 0.6.4-1
 - New upstream bugfix release 0.6.4
 
