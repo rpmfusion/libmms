@@ -7,6 +7,8 @@ URL:           http://www.sf.net/projects/libmms
 Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch1:        0001-Remove-Requires-glib-2.0-since-libmms-no-longer-depe.patch
 
+BuildRequires: gcc
+
 %description
 MMS is a proprietary streaming protocol used in Microsoft server products,
 commonly used to stream WMV data.  You can encounter mms:// style URLs all over
