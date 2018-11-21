@@ -1,9 +1,8 @@
 Name:          libmms
 Version:       0.6.4
-Release:       7%{?dist}
+Release:       8%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
-Group:         System Environment/Libraries
 URL:           http://www.sf.net/projects/libmms
 Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch1:        0001-Remove-Requires-glib-2.0-since-libmms-no-longer-depe.patch
@@ -18,7 +17,6 @@ support to your media applications.
 
 %package devel
 Summary:       Development package for %{name}
-Group:         Development/Libraries
 Requires:      %{name} = %{version}-%{release}, pkgconfig
 
 %description devel
@@ -31,9 +29,9 @@ This package contains development files for %{name}.
 
 
 %build
-export CFLAGS="$RPM_OPT_FLAGS -Wno-pointer-sign -Werror"
+export CFLAGS="%{optflags} -Wno-pointer-sign -Werror"
 %configure --disable-dependency-tracking --disable-static
-make %{?_smp_mflags} 
+%make_build
 
 
 %install
@@ -41,12 +39,12 @@ make %{?_smp_mflags}
 rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig 
+%ldconfig_scriptlets
 
 
 %files
-%doc AUTHORS COPYING.LIB ChangeLog README*
+%doc AUTHORS ChangeLog README*
+%license COPYING.LIB
 %{_libdir}/%{name}.so.*
 
 %files devel
@@ -56,6 +54,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Wed Nov 21 2018 Nicolas Chauvet <kwizart@gmail.com> - 0.6.4-8
+- Spec file clean-up
+
 * Thu Jul 26 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.6.4-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
