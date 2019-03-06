@@ -1,12 +1,11 @@
 Name:          libmms
 Version:       0.6.4
-Release:       9%{?dist}
+Release:       10%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 URL:           http://www.sf.net/projects/libmms
 Source0:       http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch1:        0001-Remove-Requires-glib-2.0-since-libmms-no-longer-depe.patch
-
 BuildRequires: gcc
 
 %description
@@ -31,7 +30,7 @@ This package contains development files for %{name}.
 
 
 %build
-export CFLAGS="%{optflags} -Wno-pointer-sign -Werror"
+export CFLAGS="%{optflags} -Wno-pointer-sign"
 %configure --disable-dependency-tracking --disable-static
 %make_build
 
@@ -56,6 +55,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Wed Mar 06 2019 Hans de Goede <j.w.r.degoede@gmail.com> - 0.6.4-10
+- Fix FTBFS on ppc64le
+
 * Mon Mar 04 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.6.4-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
