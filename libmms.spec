@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.6.4
-Release:       13%{?dist}
+Release:       14%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 URL:           http://www.sf.net/projects/libmms
@@ -55,6 +55,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Tue Aug 18 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.6.4-14
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Thu Mar 12 2020 Leigh Scott <leigh123linux@gmail.com> - 0.6.4-13
 - Rebuilt for i686
 
