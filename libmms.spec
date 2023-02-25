@@ -1,6 +1,6 @@
 Name:          libmms
 Version:       0.6.4
-Release:       19%{?dist}
+Release:       20%{?dist}
 Summary:       Library for Microsoft Media Server (MMS) streaming protocol
 License:       LGPLv2+
 URL:           http://www.sf.net/projects/libmms
@@ -64,6 +64,9 @@ rm $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Sat Feb 25 2023 Sérgio Basto <sergio@serjux.com> - 0.6.4-20
+- Remove option Werror was added by mistake
+
 * Sat Feb 25 2023 Sérgio Basto <sergio@serjux.com> - 0.6.4-19
 - Add last 8 commits from upstream
 
