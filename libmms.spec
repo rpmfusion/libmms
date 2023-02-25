@@ -39,7 +39,7 @@ This package contains development files for %{name}.
 
 %build
 ./autogen.sh
-export CFLAGS="%{optflags} -Wno-pointer-sign -Werror"
+export CFLAGS="%{optflags} -Wno-pointer-sign"
 %configure --disable-dependency-tracking --disable-static
 %make_build
 
